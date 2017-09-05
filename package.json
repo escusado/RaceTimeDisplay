@@ -22,8 +22,8 @@
     "webpack": "3.4.1"
   },
   "scripts": {
-    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "prod": "NODE_ENV=production node server.js",
+    "dev": "webpack-dev-server",
+    "start": "NODE_ENV=production node server.js",
     "postinstall": "webpack -p"
   }
 }
