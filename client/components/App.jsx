@@ -3,7 +3,7 @@ import MainScreen from './MainScreen.jsx';
 import Axios from 'axios';
 import DataHandler from './DataHandler.jsx';
 
-const CHECK_INTERVAL = 1000;
+const CHECK_INTERVAL = 10000;
 
 export default class App extends React.Component {
 
@@ -23,7 +23,6 @@ export default class App extends React.Component {
   render() {
     return (
       <div style={{textAlign: 'center'}}>
-        <h1>Hello </h1>
         <MainScreen leaderboardData={this.state.leaderboardData}/>
       </div>
     );

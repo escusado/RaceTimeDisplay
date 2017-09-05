@@ -11,7 +11,9 @@
     "style-loader": "0.18.2"
   },
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "prod": "NODE_ENV=production node server.js",
+    "postinstall": "webpack -p"
   },
   "devDependencies": {
     "babel-core": "6.25.0",
