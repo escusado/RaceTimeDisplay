@@ -10,12 +10,13 @@ class DataHandler extends React.Component {
 
   processData (data) {
     return {
-      leaderboard: this.getLeaderboard(data)
+      leaderboardData: this.getLeaderboardData(data)
     };
   }
 
-  getLeaderboard (pilotData) {
-    let leaderboard = [];
+  getLeaderboardData (pilotData) {
+    let leaderboardData = [];
+    let heats = [];
 
     // console.log('>', pilotData);
 
@@ -39,16 +40,20 @@ class DataHandler extends React.Component {
         }
 
       }
-      leaderboard.push({
-        pilot : i,
+      leaderboardData.push({
+        pilotIndex : i,
+        pilot,
         bestRoundTime,
         bestRoundIndex
       });
+
+      heats[parseInt(pilot.gsx$onheat)]
+
     });
 
-    leaderboard.sort((a, b) => a.bestRoundTime - b.bestRoundTime)
+    leaderboardData.sort((a, b) => a.bestRoundTime - b.bestRoundTime)
 
-    return leaderboard;
+    return leaderboardData;
   }
 
 }
