@@ -8,11 +8,15 @@ class MainScreen extends React.Component {
 
   }
 
+  componentDidMount () {
+    document.querySelector('video').play();
+  }
+
   render(props) {
     return (
       <div className="main-screen">
         <div className="video-background">
-          <video autoplay loop >
+          <video loop >
             <source src="http://droneproject.org/wp-content/uploads/2017/08/luces_inicio_1.mp4" type="video/mp4" />
           </video>
         </div>
