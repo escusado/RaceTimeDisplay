@@ -10,9 +10,16 @@ class MainScreen extends React.Component {
 
   render(props) {
     return (
-      <div>
+      <div className="main-screen">
+        <div className="video-background">
+          <video autoplay loop >
+            <source src="http://droneproject.org/wp-content/uploads/2017/08/luces_inicio_1.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="meta">
+          <img className="race-title" src="http://droneproject.org/wp-content/uploads/2017/07/top_logo_neonrace_landingfinal.png" alt="Neon Race"/>
+        </div>
         <Leaderboard leaderboardData={this.props.leaderboardData}/>
-        this many: {Object.keys(this.props)}
       </div>
     );
   }

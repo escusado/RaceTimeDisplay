@@ -16,13 +16,13 @@ class DataHandler extends React.Component {
 
   getLeaderboardData (pilotData) {
     let leaderboardData = [];
-    let heats = [];
 
     // console.log('>', pilotData);
 
-    pilotData.forEach(function (pilot, i) {
+    pilotData.forEach( (pilot, i) => {
       let bestRoundTime = 9999999;
       let bestRoundIndex = 0;
+
       for (let j=1; j<=ROUNDS; j++) {
         let currentRound = pilot['gsx$round'+j].$t;
 
@@ -40,20 +40,28 @@ class DataHandler extends React.Component {
         }
 
       }
+      if (pilot.gsx$name.$t.indexOf('Pilot Name')>-1) {
+        return;
+      }
       leaderboardData.push({
         pilotIndex : i,
-        pilot,
+        data : this.parsePilot(pilot),
         bestRoundTime,
         bestRoundIndex
       });
-
-      heats[parseInt(pilot.gsx$onheat)]
-
     });
 
     leaderboardData.sort((a, b) => a.bestRoundTime - b.bestRoundTime)
 
     return leaderboardData;
+  }
+
+  parsePilot (pilotData) {
+    let pilot = {};
+    pilotData.content.$t.split(', ').forEach( (keyValuePair, i) => {
+      pilot[keyValuePair.split(': ')[0]] = keyValuePair.split(': ')[1];
+    });
+    return pilot;
   }
 
 }

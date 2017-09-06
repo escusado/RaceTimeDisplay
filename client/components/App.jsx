@@ -22,7 +22,7 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div style={{textAlign: 'center'}}>
+      <div  className="app">
         <MainScreen leaderboardData={this.state.leaderboardData}/>
       </div>
     );

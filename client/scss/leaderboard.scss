@@ -1,0 +1,64 @@
+.leaderboard {
+  margin: 80px 0 0 50px;
+  width: 500px;
+  padding: 10px;
+  background-color: rgba(255,255,255,.2);
+  border-radius: 5px;
+  height: 100px;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pilot-list{
+
+    .pilot {
+      padding: 10px 5px 10px 5px;
+      font-family: 'Contrail One', cursive;
+      font-size: 25px;
+      border-bottom: 1px solid rgba(255,255,255,.5);
+
+      // &[class^="pilot-"] {
+      // }
+
+      &.top-3 {
+        font-size: 30px;
+        margin-bottom: 10px;
+        border-radius:: 3px;
+        border: none;
+      }
+
+      &.place-0 {
+        background-color: #FFD500;
+      }
+
+      &.place-1 {
+        background-color: #ADB4C9;
+      }
+
+      &.place-2 {
+        background-color: #955B2D;
+      }
+
+      &.terror {
+        background-color: rgba(0,0,0,.8);
+        color: #DA2700;
+      }
+
+      & > div {
+        display: inline-block;
+      }
+
+      .name {
+        margin-left: 5px;
+      }
+
+      .time{
+        float: right;
+      }
+
+    }
+  }
+
+}

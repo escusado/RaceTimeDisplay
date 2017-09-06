@@ -1,15 +1,30 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 class Leaderboard extends React.Component {
 
   constructor(props) {
     super(props);
+    this.direction = 1;
+    this.previousScroll = 0;
+  }
+
+  pageScroll () {
+    const node = document.querySelector('.leaderboard');
+    node.scrollTop += this.direction;
+    if(node.scrollTop === this.previousScroll) {
+      this.direction *= -1;
+    }
+    this.previousScroll = node.scrollTop;
+    setTimeout(this.pageScroll.bind(this),100);
   }
 
   render() {
+    const style = {
+      height : Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 150 + 'px'
+    };
     return (
-      <div>
-        wat
+      <div className="leaderboard" style={style} ref={(div) => {this.leaderboardEl = div;}}>
         {this.renderPilots()}
       </div>
     );
@@ -17,12 +32,19 @@ class Leaderboard extends React.Component {
 
   renderPilots () {
     if(!this.props.leaderboardData.length){return};
-    console.log('>->', this.props.leaderboardData);
     const listPilots = this.props.leaderboardData.map((pilot, i) => {
-      console.log('>>', pilot);
-      return <li key={i}>{pilot.pilot.gsx$name.$t}</li>;
+      // console.log('>', pilot);
+      let className = 'pilot place-' + i;
+      className += i < 3 ? ' top-3' : '';
+      className += i > 14 ? ' terror' : '';
+      return <div className={className} key={i}>
+              <div class="place">{i+1}.</div>
+              <div className="name"> {pilot.data.name}</div>
+              <div className="time"> {pilot.data['round'+pilot.bestRoundIndex]}</div>
+             </div>;
     });
-    return <ul>{listPilots}</ul>;
+    this.pageScroll();
+    return <div className="pilot-list">{listPilots}</div>;
   }
 
 }
