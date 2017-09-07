@@ -21,7 +21,7 @@
       transition: background-color linear .2s;
 
       &.not-present {
-        opacity: .5;
+        opacity: .4;
         .name {
           text-decoration: line-through;
         }
