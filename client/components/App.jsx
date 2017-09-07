@@ -35,10 +35,8 @@ export default class App extends React.Component {
     const response = JSON.stringify(res.data.feed.entry);
 
     if (this.previousResponse != response) {
-      console.log('>>> difference');
       this.setState(this.dataHandler.processData(res.data.feed.entry));
     }
-    console.log('same');
     this.previousResponse = response;
     setTimeout(this.componentDidMount.bind(this), CHECK_INTERVAL);
   }
