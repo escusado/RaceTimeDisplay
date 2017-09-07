@@ -1,10 +1,10 @@
 .leaderboard {
   margin: 20px;
-  width: 600px;
+  width: 700px;
   padding: 10px;
   // background-color: rgba(255,255,255,.2);
   border-radius: 5px;
-  height: 500px;
+  height: 600px;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
@@ -54,9 +54,22 @@
           margin-left: 10px;
         }
 
+        &.ch-E8{
+          background-color: #5EAAFF;
+        }
+
+        &.ch-E4{
+          background-color: #FF8F70;
+        }
+
+        &.ch-F2{
+          background-color: #FFD763;
+        }
+
         .emoji {
           font-size: 16px;
         }
+
       }
 
       // &[class^="pilot-"] {
@@ -136,6 +149,13 @@
           font-size: 2px;
         }
       }
+
+      .channel {
+        font-size: 18px;
+        color: #333;
+        margin: 10px 5px;
+      }
+
 
     }
   }

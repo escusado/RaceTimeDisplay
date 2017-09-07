@@ -50,11 +50,12 @@ class Leaderboard extends React.Component {
       className += i < 3 ? ' top-3' : '';
       className += i > 14 ? ' terror' : '';
       className += parseInt(pilot.data.present) === 0 ? ' not-present' : '';
+    const onheatClassName = 'onheat ch-'+pilot.data.channel.split(':')[0];
       return <div className={className} key={i}>
               <div className="place">{i+1}.</div>
               <div className="icon"></div>
               <div className="name"> {pilot.data.name}</div>
-              <div className="onheat">heat {pilot.data.onheat} <span className="emoji">{pilot.data.emoji}</span></div>
+              <div className={onheatClassName}>heat {pilot.data.onheat} <span className="emoji">{pilot.data.emoji}</span> <span className="channel"> {pilot.data.channel}</span></div>
               <div className="time">{pilot.data['round'+pilot.bestRoundIndex]}</div>
               <div className="top-gap">+{pilot.topGap.toFixed(3)}</div>
              </div>;
