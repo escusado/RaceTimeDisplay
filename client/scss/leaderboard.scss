@@ -18,6 +18,12 @@
       font-family: 'Contrail One', cursive;
       font-size: 30px;
       border-bottom: 1px solid rgba(255,255,255,.5);
+      transition: background-color linear .2s;
+
+      &.new,
+      &.new.top-3 {
+        background-color: #fff;
+      }
 
       .icon {
         width: 40px;
@@ -80,7 +86,7 @@
       }
 
       &.terror {
-        background-color: rgba(0,0,0,.8);
+        // background-color: rgba(0,0,0,.8);
         color: #FF0007;
         .icon {
           background-image: url('http://i.imgur.com/3aKskKD.gif');

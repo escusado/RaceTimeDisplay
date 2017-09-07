@@ -10,9 +10,12 @@ export default class App extends React.Component {
   constructor (props) {
     super(props);
     this.dataHandler = new DataHandler();
+    this.previousResponse = '';
     this.state = {
       leaderboardData:{}
     };
+
+    setTimeout(()=>{location.reload();}, 120000);
   }
 
   componentDidMount() {
@@ -29,7 +32,14 @@ export default class App extends React.Component {
   }
 
   handleResponse (res) {
-    this.setState(this.dataHandler.processData(res.data.feed.entry));
+    const response = JSON.stringify(res.data.feed.entry);
+
+    if (this.previousResponse != response) {
+      console.log('>>> difference');
+      this.setState(this.dataHandler.processData(res.data.feed.entry));
+    }
+    console.log('same');
+    this.previousResponse = response;
     setTimeout(this.componentDidMount.bind(this), CHECK_INTERVAL);
   }
 }

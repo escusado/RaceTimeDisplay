@@ -7,25 +7,37 @@ class Leaderboard extends React.Component {
     super(props);
     this.direction = 1;
     this.previousScroll = 0;
+    this.newTagStillThere = false;
+    this.scrollTimeout;
   }
 
   pageScroll () {
+    if (this.newTagStillThere) {
+      this.newTagStillThere = false;
+      console.log('wat');
+      document.querySelectorAll('.leaderboard .pilot').forEach((el, i)=>{
+        setTimeout(()=>{
+          el.classList.add('new');
+        }, 50 * i);
+
+        setTimeout(()=>{
+          el.classList.remove('new');
+        }, (50 * i) + 400);
+      });
+    }
+
     const node = document.querySelector('.leaderboard');
     node.scrollTop += this.direction;
     if(node.scrollTop === this.previousScroll) {
       this.direction *= -1;
     }
     this.previousScroll = node.scrollTop;
-    setTimeout(this.pageScroll.bind(this),100);
+    this.scrollTimeout = setTimeout(this.pageScroll.bind(this),100);
   }
 
   render() {
-    const style = {
-      // height : Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 150 + 'px',
-      // width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0)/2
-    };
     return (
-      <div className="leaderboard" style={style}>
+      <div className="leaderboard">
         {this.renderPilots()}
       </div>
     );
@@ -34,7 +46,6 @@ class Leaderboard extends React.Component {
   renderPilots () {
     if(!this.props.leaderboardData.length){return};
     const listPilots = this.props.leaderboardData.map((pilot, i) => {
-      console.log('>', pilot);
       let className = 'pilot place-' + i;
       className += i < 3 ? ' top-3' : '';
       className += i > 14 ? ' terror' : '';
@@ -46,6 +57,8 @@ class Leaderboard extends React.Component {
               <div className="time"> {pilot.data['round'+pilot.bestRoundIndex]}</div>
              </div>;
     });
+    this.newTagStillThere = true;
+    clearTimeout(this.scrollTimeout);
     this.pageScroll();
     return <div className="pilot-list">{listPilots}</div>;
   }
