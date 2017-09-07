@@ -16,8 +16,7 @@
     .pilot {
       padding: 10px 5px 10px 5px;
       font-family: 'Contrail One', cursive;
-      // text-shadow: 0 -2px rgba(0,0,0,.5);
-      font-size: 40px;
+      font-size: 30px;
       border-bottom: 1px solid rgba(255,255,255,.5);
 
       .icon {
@@ -31,19 +30,28 @@
 
       .onheat {
         color: #333;
-        padding: 4px;
+        padding: 4px 8px 4px 4px;
         font-size: 18px;
         border-radius: 5px;
         background-color: #fff;
         vertical-align: middle;
-        margin: 1px 0 0 10px;
+        margin: -5px 1px 0 11px;
+
+        & > div {
+          margin-left: 10px;
+        }
+
+        .emoji {
+          font-size: 16px;
+        }
       }
 
       // &[class^="pilot-"] {
       // }
 
       &.top-3 {
-        font-size: 50px;
+        padding: 9px 7px 4px;
+        font-size: 40px;
         margin-bottom: 10px;
         border-radius:: 3px;
         border: none;
@@ -73,7 +81,7 @@
 
       &.terror {
         background-color: rgba(0,0,0,.8);
-        color: #DA2700;
+        color: #FF0007;
         .icon {
           background-image: url('http://i.imgur.com/3aKskKD.gif');
         }
@@ -89,6 +97,7 @@
 
       .time{
         float: right;
+        margin-top: 10px;
       }
 
       .icon img {

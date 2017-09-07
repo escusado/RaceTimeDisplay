@@ -21,8 +21,8 @@ class Leaderboard extends React.Component {
 
   render() {
     const style = {
-      height : Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 150 + 'px',
-      width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0)/2
+      // height : Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 150 + 'px',
+      // width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0)/2
     };
     return (
       <div className="leaderboard" style={style}>
@@ -42,7 +42,7 @@ class Leaderboard extends React.Component {
               <div className="place">{i+1}.</div>
               <div className="icon"></div>
               <div className="name"> {pilot.data.name}</div>
-              <div className="onheat">heat {pilot.data.onheat}{pilot.data.emoji}</div>
+              <div className="onheat">heat {pilot.data.onheat} <span className="emoji">{pilot.data.emoji}</span></div>
               <div className="time"> {pilot.data['round'+pilot.bestRoundIndex]}</div>
              </div>;
     });

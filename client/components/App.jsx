@@ -3,7 +3,7 @@ import MainScreen from './MainScreen.jsx';
 import Axios from 'axios';
 import DataHandler from './DataHandler.jsx';
 
-const CHECK_INTERVAL = 10000;
+const CHECK_INTERVAL = 5000;
 
 export default class App extends React.Component {
 
@@ -30,6 +30,6 @@ export default class App extends React.Component {
 
   handleResponse (res) {
     this.setState(this.dataHandler.processData(res.data.feed.entry));
-    // setTimeout(this.componentDidMount.bind(this), CHECK_INTERVAL);
+    setTimeout(this.componentDidMount.bind(this), CHECK_INTERVAL);
   }
 }
