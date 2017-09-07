@@ -16,6 +16,7 @@ class DataHandler extends React.Component {
 
   getLeaderboardData (pilotData) {
     let leaderboardData = [];
+    let previousPilotBestRoundTime = 0;
 
     // console.log('>', pilotData);
 
@@ -43,15 +44,21 @@ class DataHandler extends React.Component {
       if (pilot.gsx$name.$t.indexOf('Pilot Name')>-1) {
         return;
       }
+
       leaderboardData.push({
         pilotIndex : i,
         data : this.parsePilot(pilot),
         bestRoundTime,
-        bestRoundIndex
+        bestRoundIndex,
       });
     });
 
     leaderboardData.sort((a, b) => a.bestRoundTime - b.bestRoundTime)
+
+    leaderboardData.forEach( (pilot, i) => {
+      pilot.topGap = pilot.bestRoundTime - previousPilotBestRoundTime
+      previousPilotBestRoundTime = pilot.bestRoundTime;
+    });
 
     return leaderboardData;
   }
@@ -61,6 +68,7 @@ class DataHandler extends React.Component {
     pilotData.content.$t.split(', ').forEach( (keyValuePair, i) => {
       pilot[keyValuePair.split(': ')[0]] = keyValuePair.split(': ')[1];
     });
+    pilot.present = parseInt(pilotData.gsx$present.$t);
     return pilot;
   }
 

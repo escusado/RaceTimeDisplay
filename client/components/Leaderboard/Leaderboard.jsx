@@ -49,12 +49,14 @@ class Leaderboard extends React.Component {
       let className = 'pilot place-' + i;
       className += i < 3 ? ' top-3' : '';
       className += i > 14 ? ' terror' : '';
+      className += parseInt(pilot.data.present) === 0 ? ' not-present' : '';
       return <div className={className} key={i}>
               <div className="place">{i+1}.</div>
               <div className="icon"></div>
               <div className="name"> {pilot.data.name}</div>
               <div className="onheat">heat {pilot.data.onheat} <span className="emoji">{pilot.data.emoji}</span></div>
-              <div className="time"> {pilot.data['round'+pilot.bestRoundIndex]}</div>
+              <div className="time">{pilot.data['round'+pilot.bestRoundIndex]}</div>
+              <div className="top-gap">+{pilot.topGap.toFixed(3)}</div>
              </div>;
     });
     this.newTagStillThere = true;
