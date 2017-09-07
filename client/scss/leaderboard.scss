@@ -1,10 +1,10 @@
 .leaderboard {
-  margin: 80px 0 0 50px;
-  // width: 500px;
+  margin: 20px;
+  width: 600px;
   padding: 10px;
-  background-color: rgba(255,255,255,.2);
+  // background-color: rgba(255,255,255,.2);
   border-radius: 5px;
-  height: 100px;
+  height: 600px;
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
@@ -16,7 +16,7 @@
     .pilot {
       padding: 10px 5px 10px 5px;
       font-family: 'Contrail One', cursive;
-      text-shadow: 0 -2px rgba(0,0,0,.5);
+      // text-shadow: 0 -2px rgba(0,0,0,.5);
       font-size: 40px;
       border-bottom: 1px solid rgba(255,255,255,.5);
 
@@ -26,12 +26,17 @@
         background-position: 50% 50%;
         background-size: cover;
         background-repeat: no-repeat;
+        background-image: url('http://i.imgur.com/cak5ard.gif');
       }
 
       .onheat {
-        font-size: 20px;
+        color: #333;
+        padding: 4px;
+        font-size: 18px;
         border-radius: 5px;
-        background-color: red;
+        background-color: #fff;
+        vertical-align: middle;
+        margin: 1px 0 0 10px;
       }
 
       // &[class^="pilot-"] {
@@ -53,15 +58,25 @@
 
       &.place-1 {
         background-color: #ADB4C9;
+        .icon {
+          background-image: url('http://i.imgur.com/h9wLS7n.gif');
+        }
+
       }
 
       &.place-2 {
         background-color: #955B2D;
+        .icon {
+          background-image: url('http://i.imgur.com/TMRsfJH.gif');
+        }
       }
 
       &.terror {
         background-color: rgba(0,0,0,.8);
         color: #DA2700;
+        .icon {
+          background-image: url('http://i.imgur.com/3aKskKD.gif');
+        }
       }
 
       & > div {

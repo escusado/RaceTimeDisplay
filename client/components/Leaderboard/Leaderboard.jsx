@@ -22,7 +22,7 @@ class Leaderboard extends React.Component {
   render() {
     const style = {
       height : Math.max(document.documentElement.clientHeight, window.innerHeight || 0) - 150 + 'px',
-      width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0)/3
+      width: Math.max(document.documentElement.clientWidth, window.innerWidth || 0)/2
     };
     return (
       <div className="leaderboard" style={style}>
