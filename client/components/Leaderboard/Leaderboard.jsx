@@ -48,7 +48,7 @@ class Leaderboard extends React.Component {
     const listPilots = this.props.leaderboardData.map((pilot, i) => {
       let className = 'pilot place-' + i;
       className += i < 3 ? ' top-3' : '';
-      className += i > 8 ? ' terror' : '';
+      className += i > 5 ? ' terror' : '';
       className += parseInt(pilot.data.present) === 0 ? ' not-present' : '';
     const onheatClassName = 'onheat ch-'+pilot.data.channel.split(':')[0];
       return <div className={className} key={i}>
