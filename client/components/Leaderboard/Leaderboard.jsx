@@ -55,12 +55,12 @@ class Leaderboard extends React.Component {
               <div className="place">{i+1}.</div>
               <div className="icon"></div>
               <div className="name"> {pilot.data.name}</div>
-              <div className={onheatClassName}>heat {pilot.data.onheat} <span className="emoji">{pilot.data.emoji}</span> <span className="channel"> {pilot.data.channel}</span></div>
               <div className="time">{pilot.data['round'+pilot.bestRoundIndex]}</div>
               <div className="top-gap">+{pilot.topGap.toFixed(3)}</div>
               <div className="clearfix"></div>
              </div>;
     });
+    //<div className={onheatClassName}>heat {pilot.data.onheat} <span className="emoji">{pilot.data.emoji}</span> <span className="channel"> {pilot.data.channel}</span></div>
     this.newTagStillThere = true;
     clearTimeout(this.scrollTimeout);
     this.pageScroll();
