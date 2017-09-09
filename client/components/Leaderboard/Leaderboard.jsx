@@ -58,6 +58,7 @@ class Leaderboard extends React.Component {
               <div className={onheatClassName}>heat {pilot.data.onheat} <span className="emoji">{pilot.data.emoji}</span> <span className="channel"> {pilot.data.channel}</span></div>
               <div className="time">{pilot.data['round'+pilot.bestRoundIndex]}</div>
               <div className="top-gap">+{pilot.topGap.toFixed(3)}</div>
+              <div className="clearfix"></div>
              </div>;
     });
     this.newTagStillThere = true;

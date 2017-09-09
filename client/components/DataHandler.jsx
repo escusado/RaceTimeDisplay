@@ -1,6 +1,6 @@
 import React from 'react';
 
-var ROUNDS = 15;
+var ROUNDS = 9;
 
 class DataHandler extends React.Component {
 

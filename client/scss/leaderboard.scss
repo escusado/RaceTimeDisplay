@@ -4,7 +4,7 @@
 
 .leaderboard {
   margin: 20px;
-  width: 700px;
+  width: 650px;
   padding: 10px;
   // background-color: rgba(255,255,255,.2);
   border-radius: 5px;
@@ -18,7 +18,7 @@
   .pilot-list{
 
     .pilot {
-      padding: 0px 5px 0px 5px;
+      height: 40px;
       font-family: 'Contrail One', cursive;
       font-size: 20px;
       border-bottom: 1px solid rgba(255,255,255,.5);
@@ -47,12 +47,12 @@
 
       .onheat {
         color: #333;
-        padding: 4px 8px 4px 4px;
-        font-size: 18px;
+        padding: 3px 6px 3px 3px;
+        font-size: 12px;
         border-radius: 5px;
         background-color: #fff;
         vertical-align: middle;
-        margin: -5px 1px 0 11px;
+        margin: -8px 1px 0 11px;
 
         & > div {
           margin-left: 10px;
@@ -155,7 +155,7 @@
       }
 
       .channel {
-        font-size: 18px;
+        font-size: 14px;
         color: #333;
         margin: 10px 5px;
       }
