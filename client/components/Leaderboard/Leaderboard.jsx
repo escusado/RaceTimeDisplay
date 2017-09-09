@@ -32,7 +32,7 @@ class Leaderboard extends React.Component {
       this.direction *= -1;
     }
     this.previousScroll = node.scrollTop;
-    this.scrollTimeout = setTimeout(this.pageScroll.bind(this),100);
+    this.scrollTimeout = setTimeout(this.pageScroll.bind(this),30);
   }
 
   render() {
